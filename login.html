@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Counterpart Notifier</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <img id="image1" src="images/logo.png">
+        <div>
+          <h1 id="text">
+            Counterpart Notifier
+          </h1>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="card-body">
+          <card-title id="title"><h2>Login</h2></card-title>
+          <hr>
+
+          <img id="image2" src="images/stud.png">
+          <br>
+          <br>
+          <form id="form">
+            <div class="input-group form-group" id="form">
+              <input type="text" name="email" class="form-control" placeholder="Class ID">
+            </div>
+
+            <div class="input-group form-group" id="form">
+              <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <br>
+            <div class="form-group" id="form">
+              <input type="submit" name="btn" value="Login" class="btn btn-outline-danger">
+            </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
+<style>
+  body {
+    background-color: black;
+  }
+
+  #image1 {
+    width: 80%;
+    height: 90%;
+    margin-top: 15%;
+    margin-left: 25%;
+  }
+  #image2{
+    width:30%;
+    height:30%;
+    margin-left: 35%;
+  }
+
+  #text {
+    margin-left: 30%;
+    font-family: fantasy;
+    color: rgb(255, 180, 196)
+  }
+  .card-body{
+    border:solid white 1px;
+    border-radius:5%;
+    width:40%;
+    margin-left:25%;
+    margin-top: 10%;
+    background: linear-gradient(to bottom, #ffffff 0%, #000000  100%);
+  }
+  #title{
+    text-align: center;
+    font-family: fantasy;
+    color:black;
+  }
+  #form{
+    margin-left: 15%;
+    margin-right:15%;
+  }
+  .btn {
+    margin-left: 30%;
+  }
+</style>
