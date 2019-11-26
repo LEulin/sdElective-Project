@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin side</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav" style="background-color: lightgray">
+                <h2 style="text-align:center;font-family: fantasy">Online Students</h2>
+                <!-- Mao ni siya ang butangan sa mga online nga students na may paid button -->
+                <div id="studentSidebar">
+                    <li style="text-align:center">
+                        <div class="btn-group" role="group" aria-label="Third group">
+                            <button type="button" class="btn btn-info">Paid</button>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+            <div class="col-sm-9" style="background-color: gray; padding-right:20px;">
+                <h2 style="text-align: center; font-family: fantasy; color: black">Paid Students for this Month</h2>
+                <hr>
+
+                <!-- Mao ni siya ang table!!!! -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th id="text">Class ID</th>
+                            <th id="text">Month</th>
+                            <th id="text">Ammount</th>
+                            <th id="text">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color:white">
+                        <tr>
+                            <!-- Dito mo ilalagay yung mag students na paid na :) -->
+                            <td id="classID"></td>
+                            <td id="month">November</td>
+                            <td id="ammount">500.00</td>
+                            <td id="remarks"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <style>
+        body{
+            background-color: black;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 600px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 80%;
+        }
+
+        #text {
+            text-align: center;
+            background: #f1f1f1;
+
+        }
+
+        #head {
+            background: gray;
+        }
+    </style>
+</body>
+
+</html>
