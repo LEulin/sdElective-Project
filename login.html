@@ -13,7 +13,14 @@
 
 <body>
 
-  <div class="container-fluid">
+  <div>
+    <br>
+    <button type="button" class="btn btn-info" id="adminBTN">Login as Admin</button>
+    <button type="button" class="btn btn-success" id="studentBTN">Login as Student</button>
+  </div>
+
+  <!-- for student login -->
+  <div class="container-fluid" id="studentLogin">
     <div class="row">
       <div class="col-sm-4">
         <img id="image1" src="images/logo.png">
@@ -25,7 +32,9 @@
       </div>
       <div class="col-sm-8">
         <div class="card-body">
-          <card-title id="title"><h2>Login</h2></card-title>
+          <card-title id="title">
+            <h2>Login</h2>
+          </card-title>
           <hr>
 
           <img id="image2" src="images/stud.png">
@@ -34,84 +43,325 @@
           <!-- Mao ni ang form for the login -->
           <form id="form">
             <div class="input-group form-group" id="form">
-              <input type="text" name="email" class="form-control" placeholder="Class ID">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Student Name
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#" value="Lealyn">Lealyn</a></li>
+                  <li><a href="#" value="Jericho">Jericho</a></li>
+                  <li><a href="#" value="Faye">Faye</a></li>
+                </ul>
+              </div>
             </div>
-            <div class="form-group" id="form">
-              <input type="submit" name="btn" value="Login" class="btn btn-outline-danger">
+            <div class="form-group" id="form0">
+              <input type="submit" name="btn" value="Login" class="btn btn-outline-danger" id="studentbtnlogin">
             </div>
         </div>
       </div>
     </div>
-    <!-- This is the modal nga mu pop up pag human mag login -->
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+  </div>
+
+  <!-- for admin login -->
+  <div class="container-fluid" id="adminLogin">
+    <div class="row">
+      <div class="col-sm-4">
+        <img id="image1" src="images/logo.png">
+        <div>
+          <h1 id="text">
+            Counterpart Notifier
+          </h1>
         </div>
       </div>
+      <div class="col-sm-8">
+        <div class="card-body">
+          <card-title id="title">
+            <h2>Login</h2>
+          </card-title>
+          <hr>
+          <img id="image2" src="images/admin.png">
+          <br>
+          <br>
+          <!-- Mao ni ang form for the login -->
+          <form id="form">
+            <div class="input-group form-group" id="form1">
+              <input type="text" class="form-control" placeholder="Admin" id="admin">
+            </div>
+            <div class="form-group" id="form1">
+              <input type="submit" name="btn" value="Login" class="btn btn-outline-danger" id="adminbtnlogin">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- This is the modal nga mu pop up pag human mag login -->
+  <div class="modal" role="dialog" id="notifier" style="font-size:100%;height:300%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="text-align:center">
+          <h5 class="card-title">
+            <h1 id="h1" style="font-size:500%">Counterpart Due</h1>
+          </h5>
+          <h2 id="h2" style="font-size:400%">You are requested to pay your monthly counterpart this month...</h2>
+          <br>
+          <button type="button" class="btn btn-danger" id="okbtn" style="width:20%">
+            <h3>OK</h3>
+          </button>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- for admin actions -->
+  <div class="container-fluid" id="adminActivity">
+    <div class="row content">
+      <div class="col-sm-3 sidenav" style="background-color: lightgray">
+        <h2 style="text-align:center;font-family: fantasy">Online Students</h2>
+        <!-- Mao ni siya ang butangan sa mga online nga students na may paid button -->
+        <div id="studentSidebar">
+          <li style="text-align:center">
+            <div class="btn-group" role="group" aria-label="Third group">
+              <button type="button" class="btn btn-info">Paid</button>
+            </div>
+          </li>
+
+        </div>
+      </div>
+      <div class="col-sm-9" style="background-color: gray; padding-right:20px;">
+        <h2 style="text-align: center; font-family: fantasy; color: black">Paid Students for this Month</h2>
+        <hr>
+
+        <!-- Mao ni siya ang table!!!! -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th id="text2">Class ID</th>
+              <th id="text2">Month</th>
+              <th id="text2">Ammount</th>
+              <th id="text2">Remarks</th>
+            </tr>
+          </thead>
+          <tbody style="color:white">
+            <tr>
+              <!-- Dito mo ilalagay yung mag students na paid na :) -->
+              <td id="classID"></td>
+              <td id="month">November</td>
+              <td id="ammount">500.00</td>
+              <td id="remarks"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+  <script>
+    // for login
+    var username = $('#username');
+    var admin = $('#admin');
+    // login select buttons
+    var adminLogin = $('#adminLogin');
+    var studentLogin = $('#studentLogin');
+    // select user login buttons
+    var adminBTN = $('#adminBTN');
+    var studentBTN = $('#studentBTN');
+    // for students
+    var notifier = $('#notifier');
+    // login buttons to redirect to another actions
+    var studentbtnlogin = $('#studentbtnlogin');
+    var adminbtnlogin = $('#adminbtnlogin')
+    // for admin activity
+    var adminActivity = $('#adminActivity');
+
+    var okbtn = $('#oktbn');
+
+
+
+    // For hide and show of the login form
+    $(document).ready(function () {
+      var paid = false;
+      var isStudent = false;
+
+      function notPaid() {
+        if (paid == false) {
+          $("#notifier").show();
+        }
+      }
+
+      $(adminLogin).hide();
+      $(studentLogin).hide();
+      $(adminActivity).hide();
+
+      $(studentBTN).click(function () {
+        $(adminLogin).hide();
+        $(studentLogin).show();
+      });
+
+      // functions for admin activity
+      $(adminBTN).click(function () {
+        $(studentLogin).hide();
+        $(adminLogin).show();
+        isStudent = false;
+      });
+      $(adminbtnlogin).click(function (e) {
+        e.preventDefault();
+        $(adminBTN).hide();
+        $(studentBTN).hide();
+        $(adminLogin).hide();
+        $(studentLogin).hide();
+        $(adminActivity).show();
+        isStudent = false;
+      });
+
+      // functions for the student notifier
+      $(studentbtnlogin).click(function (e) {
+        e.preventDefault();
+        $(adminBTN).hide();
+        $(studentBTN).hide();
+        $(adminLogin).hide();
+        $(studentLogin).hide();
+        $(notifier).show();
+        isStudent = true;
+      });
+
+      $("#okbtn").click(function (e) {
+        e.preventDefault();
+        $(adminBTN).hide();
+        $(studentBTN).hide();
+        $(adminLogin).hide();
+        $(studentLogin).hide();
+        $(notifier).hide();
+
+        window.setTimeout(function () {
+          $(notifier).show();
+        }, 3000)
+
+      });
+    });
+
+
+    // if(username.localeCompare("PNAdmin") == 0 || username.localeCompare("PNadmin") == 0){
+    //   window.location.replace('admin.html')
+    // } else(){
+
+    // } else {
+    //   alert('Account do not exist!');
+    // }
+  </script>
+
+  <style>
+    body {
+      background-color: black;
+    }
+
+    /* for the notifier */
+    #okbtn {
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+
+    h1 {
+      color: red;
+      font-family: fantasy;
+      font-weight: 100%;
+    }
+
+    /* end of notifier style */
+
+    #image1 {
+      width: 60%;
+      height: 70%;
+      margin-top: 30%;
+      margin-left: 35%;
+    }
+
+    #image2 {
+      width: 30%;
+      height: 30%;
+      margin-left: 35%;
+    }
+
+    #text {
+      margin-left: 30%;
+      font-family: fantasy;
+      color: rgb(255, 180, 196)
+    }
+
+    .card-body {
+      border: solid white 1px;
+      border-radius: 5%;
+      width: 40%;
+      margin-left: 25%;
+      margin-top: 10%;
+      background: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
+    }
+
+    .row.content {
+      height: 600px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 80%;
+    }
+
+    #text2 {
+      text-align: center;
+      background: #f1f1f1;
+
+    }
+
+    #head {
+      background: gray;
+    }
+
+    #title {
+      text-align: center;
+      font-family: fantasy;
+      color: black;
+    }
+
+    #form0 {
+      margin-left: 20%;
+      margin-right: 10%;
+    }
+
+    #form {
+      margin-left: 13%;
+      margin-right: 15%;
+    }
+
+    #form1 {
+      margin-left: 23%;
+      margin-right: 15%;
+    }
+
+    .btn {
+      margin-left: 30%;
+    }
+
+    #adminBTN {
+      float: right;
+      margin-right: 3%;
+    }
+
+    #studentBTN {
+      float: right;
+      margin-right: -27%;
+    }
+  </style>
 </body>
 
+
+
+
 </html>
-
-
-<script>
-  // here is where the code should start
-
-</script>
-<style>
-  body {
-    background-color: black;
-  }
-
-  #image1 {
-    width: 60%;
-    height: 70%;
-    margin-top: 30%;
-    margin-left: 35%;
-  }
-  #image2{
-    width:30%;
-    height:30%;
-    margin-left: 35%;
-  }
-
-  #text {
-    margin-left: 30%;
-    font-family: fantasy;
-    color: rgb(255, 180, 196)
-  }
-  .card-body{
-    border:solid white 1px;
-    border-radius:5%;
-    width:40%;
-    margin-left:25%;
-    margin-top: 15%;
-    background: linear-gradient(to bottom, #ffffff 0%, #000000  100%);
-  }
-  #title{
-    text-align: center;
-    font-family: fantasy;
-    color:black;
-  }
-  #form{
-    margin-left: 15%;
-    margin-right:15%;
-  }
-  .btn {
-    margin-left: 30%;
-  }
-</style>
