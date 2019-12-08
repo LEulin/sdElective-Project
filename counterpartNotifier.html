@@ -23,7 +23,7 @@
   <div class="container-fluid" id="studentLogin">
     <div class="row">
       <div class="col-sm-4">
-        <img id="image1" src="images/logo.png">
+        <img id="image1" src="images/admin.png">
         <div>
           <h1 id="text">
             Counterpart Notifier
@@ -43,15 +43,11 @@
           <!-- Mao ni ang form for the login -->
           <form id="form">
             <div class="input-group form-group" id="form">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Student Name
-                  <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#" value="Lealyn">Lealyn</a></li>
-                  <li><a href="#" value="Jericho">Jericho</a></li>
-                  <li><a href="#" value="Faye">Faye</a></li>
-                </ul>
-              </div>
+                <select class="option">
+                  <option value="volvo">Jericho</option>
+                  <option value="saab">Faye</option>
+                  <option value="opel">Lealyn</option>
+                </select> 
             </div>
             <div class="form-group" id="form0">
               <input type="submit" name="btn" value="Login" class="btn btn-outline-danger" id="studentbtnlogin">
@@ -65,7 +61,7 @@
   <div class="container-fluid" id="adminLogin">
     <div class="row">
       <div class="col-sm-4">
-        <img id="image1" src="images/logo.png">
+        <img id="image1" src="./images/logo.png">
         <div>
           <h1 id="text">
             Counterpart Notifier
@@ -114,6 +110,25 @@
       </div>
     </div>
   </div>
+
+  <!-- This is the mnodal once the scholar is already paid on the counterpart! -->
+  <div class="modal" role="dialog" id="paidnotifier" style="font-size:100%;height:300%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="text-align:center">
+          <h5 class="card-title">
+            <h1 id="h1" style="font-size:500%">Counterpart Paid</h1>
+          </h5>
+          <h2 id="h2" style="font-size:400%">You paid your counterpart for this month...</h2>
+          <br>
+          <button type="button" class="btn btn-danger" id="okbtn" style="width:20%">
+            <h3>OK</h3>
+          </button>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- for admin actions -->
@@ -139,7 +154,7 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th id="text2">Class ID</th>
+              <th id="text2">Scholar Full Name</th>
               <th id="text2">Month</th>
               <th id="text2">Ammount</th>
               <th id="text2">Remarks</th>
@@ -148,7 +163,7 @@
           <tbody style="color:white">
             <tr>
               <!-- Dito mo ilalagay yung mag students na paid na :) -->
-              <td id="classID"></td>
+              <td id="name"></td>
               <td id="month">November</td>
               <td id="ammount">500.00</td>
               <td id="remarks"></td>
@@ -175,6 +190,7 @@
     var studentBTN = $('#studentBTN');
     // for students
     var notifier = $('#notifier');
+    var paidnotifier = $('#paidnotifier')
     // login buttons to redirect to another actions
     var studentbtnlogin = $('#studentbtnlogin');
     var adminbtnlogin = $('#adminbtnlogin')
@@ -190,12 +206,13 @@
       var paid = false;
       var isStudent = false;
 
-      function notPaid() {
-        if (paid == false) {
-          $("#notifier").show();
-        }
-      }
-
+      // function notPaid() {
+      //   if (paid == false) {
+      //     $("#notifier").show();
+      //   }
+      // }
+      
+      // $(paidnotifier).hide();
       $(adminLogin).hide();
       $(studentLogin).hide();
       $(adminActivity).hide();
@@ -299,7 +316,7 @@
       border: solid white 1px;
       border-radius: 5%;
       width: 40%;
-      margin-left: 25%;
+      margin-left: 30%;
       margin-top: 10%;
       background: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
     }
@@ -358,7 +375,15 @@
       float: right;
       margin-right: -27%;
     }
+    .option{
+      width:150%;
+      margin-left: 25px;
+    }
   </style>
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="scripts.js"></script>
 </body>
 
 
